@@ -7,7 +7,7 @@
 </head>
 <body>
  <h1>Hotel Booking</h1>
-<form action="https://angsila.cs.buu.ac.th/~wittawas/642/88726059/services/post.php">
+ <form method="POST" action="https://angsila.cs.buu.ac.th/~wittawas/642/88726059/services/post.php">
 <table>
     <tr>
         <td>Room Type </td>
@@ -38,19 +38,21 @@
     </tr>
     <tr>
         <td>Arrival</td>
-        <td></td>
+        <td><input type="date" id="" name="arrivaldate"> <input type="time" id="" name="arrivaltime"></td>
     </tr>
     <tr>
         <td>Departure</td>
-        <td></td>
+        <td><input type="date" id="" name="departuredate"> <input type="time" id="" name="departuretime"></td>
     </tr>
     <tr>
         <td>Free Pickup</td>
-        <td></td>
+        <td><input type="radio" name="pickup" id="pickup" value="Yes">Yes, Sure!<br>
+            <input type="radio" name="pickup" id="pickup" value="No">No, I already rented a cal
+        </td>
     </tr>
     <tr>
         <td>Flight Number</td>
-        <td></td>
+        <td><input type="text" name="flightnum" id=""></td>
     </tr>
     <tr>
         <td>Other requests</td>
