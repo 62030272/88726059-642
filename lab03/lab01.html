@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <style>
+        .item1 { grid-area: header; }
+        .item2 { grid-area: menu; }
+        .item3 { grid-area: main; }
+        .item4 { grid-area: right; }
+        .item5 { grid-area: footer; }
+        
+        .grid-container {
+          display: grid;
+          grid-template-areas:
+            
+            'menu main main main right right'
+            
+          /* grid-gap: 10px;
+          background-color: #ffffff;
+          padding: 10px; */
+        }
+    </style>
+</head>
+       
+<div class="grid-container">
+  <div class="item3">
+        <body>
+        <h1><b>My site</b></h1>
+        <hr size="4" color="green">
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin id tellus.<br>
+        Nam accumsan tincidunt quam. Cum sociis natoque penatibus et magnis<br>
+        dis parturient montes, nascetur ridiculus mus. Donec sed est ut felis<br>
+        scelerisque semper. Phasellus pretium hendrerit risus. Morbi malesuada.<br>
+        Duis porttitor tincidunt neque. Phasellus eget velit a mi aliquam<br>
+        molestie. Vestibulum lacinia viverra nisl. Praesent rutrum varius justo.<br>
+        Mauris feugiat.</p>
+        <br>
+        <br>
+        <h1><b>lmage ln Text</b></h1>
+        <hr size="4" color="green">
+        <body>
+            <img src="images/Na Jaemin.jpg" alt="nana img" width= "30%" height= "20%" align="left"> 
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,<br>
+               consectetuer adipiscing elit. Proin id<br>
+                tellus. Nam accumsan tincidunt quam.<br>
+                Cum sociis natoque penatibus et magnis<br>
+                dis parturient monter, nascetur ridiculus<br>
+                mus. Donec sed est ut felis scelerisque<br>
+                semper.
+            </p>
+            <br>
+        </body>
+        <br clear="all" >
+        <h1><b>Time table</b></h1>
+        <hr size="4" color="green">
+            <TABLE width= "100%" height= "10%">
+                <tr> 
+                    <th bgcolor="#686464">  </th> 
+                    <th bgcolor="#686464">  </th> 
+                    <th bgcolor="#686464">  </th> 
+                </tr>
+                <tr> 
+                    <td bgcolor="#969292">  </td> 
+                    <td bgcolor="#969292">  </td> 
+                    <td bgcolor="#969292">  </td> 
+                </tr>
+                <tr> 
+                    <td bgcolor="#bcb9b9">  </td> 
+                    <td bgcolor="#bcb9b9">  </td> 
+                    <td bgcolor="#bcb9b9">  </td> 
+                </tr>
+             </TABLE>
+            <br>
+
+
+        <h1><b>Form Example</b></h1>
+        <hr size="4" color="green">
+            <form action=" save.php" method="post">
+                <div>
+                    <label for="name"> Name: </label> &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;
+                    <input type="text" id="name" name="user_name">
+                </div>
+            <br />
+            <div>
+                <label for="mail"> Your e-mail: </label>
+                <input type="email" id="mail" name="user_mail">
+            </div>
+            <br />
+            <div>
+                <label for="comm"> Comments: </label>&nbsp;
+                <textarea id="comm" name="user_comments"></textarea>
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Send message">
+            </p>
+            </form>
+        </body>
+    
+    
+    </div>  
+    <div class="item4">
+            <div class="item4">
+                <body>
+                    <table style="border: 2px solid #969090;" bgcolor="LightGray"width= "60%" height= "100%">
+                        <br>
+                        <tr>
+                            <th style="border: 2px solid #969090;">Main Sidebar</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 2px solid LightGray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is an exampke of a<br> paragraph in the sidebar<br> follwed by an example of<br> sidebar links.
+                                <br>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <b><a class="one" href="https://www.google.com" target="_blank">More free Templates</a></b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <b><a class="one" href="https://www.google.com" target="_blank">Freelance Web Designer</a></b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <b><a class="one" href="https://www.google.com" target="_blank">Some Example Links</a></b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <b><a class="one" href="https://www.google.com" target="_blank">Donec sed est ut felis</a></b>
+                                        </p>
+                                    </li>
+                                </ul>
+                                This is a form in the sidebar.
+                                <br>
+                                <br />
+                                <div> 
+                                    &nbsp; &nbsp;&nbsp;&nbsp; <input type="text" >
+                                    <button ><a href="https://www.google.com">Search</a>  </button> 
+                                </div>
+                                <br />
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Images that would be good<br>
+                                for advertsment or a sample<br>
+                                gallery:
+                            </td>
+                        </tr>
+                        <tr style="background-color: #ffffff;">
+                            <td style="border: 2px solid LightGray ;">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            </td>
+                        </tr>
+                    </table>
+                </body>
+            </div>
+    
+    
+    </div>
+   
+  </div> 
+</body>
+</html>
+
