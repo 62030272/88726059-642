@@ -1,0 +1,26 @@
+<HTML>
+    <HEAD><TITLE>Pull-down Menu with URL Revealed</TITLE></HEAD>
+    <BODY>
+        <SCRIPT>
+            var AR=new Array();
+            AR[0]="Message 1";
+            AR[1]="Message 2";
+            AR[2]="Message 3";
+            var i=0;
+            function next() {
+                i=(++i)%AR.length;
+                document.getElementById("here").innerHTML=AR[i];
+            }
+        </SCRIPT> 
+    </BODY>
+    <BODY>
+        Click on the middle section to have it change what it says.<BR>
+        Text-1 
+        <HR>
+        <div onclick="next()" id="here">
+        DEFAULT
+        </div>
+        <HR>
+        Text-2 
+    </BODY>
+</HTML>
