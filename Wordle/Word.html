@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Wordle - A daily word game</title>
+</head>
+
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    span {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .green {
+        background-color: green;
+        color: white;
+    }
+
+    .yellow {
+        background-color: gold;
+        color: #000;
+    }
+
+    .red {
+        background-color: firebrick;
+        color: white;
+    }
+</style>
+
+<body align="center">
+    <h1>Wordle</h1>
+    <h4>กรุณาป้อนคำศัพท์ที่มี 5 ตัวอักษร</h4>
+    <input type="text" maxlength="5" id="gw">
+    <input type="button" value="Guess" onClick="guess()">
+    <input type="button" value="New" onClick="NewGame()">
+    <div id="hist"></div>
+    <div id="result"></div>
+
+
+    <script>
+
+        chr = ["after", "alone", "apple", "begin", "below", "black",
+        "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight",
+        "green", "group", "happy", " house", "image", "jelly"];
+
+        ch_random = chr[Math.floor(Math.random() * chr.length)];
+        document.write(ch_random);
+        numGuess = 6;
+        num = 1;
+
+        function guess() {
+            console.log(ch_random);
+            numCorrect = 0;
+            elgw = document.getElementById('gw');
+            hist = document.getElementById('hist');
+            gw = elgw.value;
+            s = "<div>";
+
+            for (i = 0; i < gw.length; i++) {
+                if (ch_random.indexOf(gw[i]) < 0) {
+                    s += "<span class='red'>" + gw[i] + "</span>";
+                } else if (gw[i] == ch_random[i]) {
+                    s += "<span class='green'>" + gw[i] + "</span>";
+                    numCorrect++;
+                } else {
+                    s += "<span class='yellow'>" + gw[i] + "</span>";
+                }}
+            
+                console.log(gw)
+
+            s += "</div>";
+            hist.innerHTML += s;
+            num++;
+            elgw.select();
+            if (numCorrect == 5)hist.innerHTML += "Win!!!";
+                                 
+            if (num > 6 && numCorrect !=5)hist.innerHTML += "Game Over!!!";
+            if (num >= 7) NewGame();
+
+
+            // result = document.getElementById("result");
+            // now = document.getElementById('ch').value;
+
+            // if (now == ch_random) { result.innerHTML = "<p> YOU WIN </p>"; }
+            // else {
+            //     result.innerHTML = "<p>ยังไม่ใช่</p>";
+            //     document.getElementById('ch').select();
+            // }
+
+
+        }
+
+        function NewGame() {
+            location.reload();
+        }
+    </script>
+ </body>
+
+</html>
