@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Wordle - A daily word game</title>
+</head>
+
+<body align="center">
+  <h1>Wordle</h1>
+  <h4>กรุณาป้อนคำศัพท์ที่มี 5 ตัวอักษร</h4>
+  <input type="text" id="ch">
+  <input type="button" value="Guess" onClick="guess()">
+  <input type="button" value="New" onClick="NewGame()">
+  <p3> <br> ? ผิดต่ำแหน่ง</p3>
+  <p3>  ! ไม่มี</p3>
+  <div id="hist"></div>
+  <div id="result"></div>
+
+
+  <script>
+
+    //ch = displayItems("after", "alone", "apple", "begin", "below", "black", "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight", "green", "group", "happy", " house", "image", "jelly")
+
+    //rnd = ch.random();
+    //document.getElementsById('ch').focus();
+    const chr = ["after", "alone", "apple", "begin", "below", "black", "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight", "green", "group", "happy", " house", "image", "jelly"];
+
+    const ch_random = chr[Math.floor(Math.random() * chr.length)];
+    document.getElementById("ch").focus();
+
+    function guess() {
+      console.log(ch_random);
+      n = document.getElementById('ch').value;
+      h = document.getElementById('hist');
+
+      for (let i = 0; i < 5; i++) {
+        let n = document.getElementById('ch').value;
+        let OUTPUT = "";
+        console.log(n.slice(i, i + 1));
+
+        if (ch_random.includes(n.slice(i, i + 1))) {
+          if (n.slice(i, i + 1) == ch_random.slice(i, i + 1)) {
+            OUTPUT = n.slice(i, i + 1);
+
+          } else { OUTPUT = n.slice(i, i + 1) + "?" }
+
+        } else { OUTPUT = n.slice(i, i + 1) + " ! " }
+
+
+        h.innerHTML += " [ " + OUTPUT + " ] ";
+      } h.innerHTML += "<br>";
+
+
+      result = document.getElementById("result");
+      now = document.getElementById('ch').value;
+
+      if (now == ch_random) { result.innerHTML = "<p> YOU WIN </p>"; }
+      else { result.innerHTML = "<p>ยังไม่ใช่</p>"; }
+
+      // let text = "";
+      //for (let i = 0; i < 5; i++) {
+      //let gchr = n;
+      // }
+
+      //for (let i = 0; i < 5; i++) {
+      //let gchr = n;
+      //let wchr = ch_random;
+
+      //let game_Chek = "____";
+      //let game_HAVE = "ไม่ถูกตำแหน่ง";
+
+      //console.log(gchr.slice(i, i + 1));
+      //console.log(wchr.slice(i, i + 1));
+
+      //if (ch_random.includes(gchr.slice(i, i + 1))) {
+      //if (gchr.slice(i, i + 1) == wchr.slice(i, i + 1)) {
+      //game_Chek = gchr.slice(i, i + 1);
+
+      //} else { game_Chek = gchr.slice(i, i + 1) + game_HAVE }
+
+      //}
+
+
+      //h.innerHTML += " | " + game_Chek + "| ";
+   // } h.innerHTML += "<br>";
+
+
+   // result = document.getElementById('result');
+    //if (n != ch_random) { result.innerHTML = "<p>ยังไม่ใช่</p>"; }
+    //if (ch_random.includes(n)) { result.innerHTML = "<p>มี</p>"; }
+   // if (n == ch_random) { result.innerHTML = "<p> YOU WIN </p>"; }     
+
+    }
+
+    function NewGame() {
+      document.getElementById('ch').value = "";
+      document.getElementById('hist').innerHTML = "";
+      document.getElementById('result').innerHTML = "";
+      const chr = ["after", "alone", "apple", "begin", "below", "black", "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight", "green", "group", "happy", " house", "image", "jelly"];
+      console.log(chr);
+      const ch_random = chr[Math.floor(Math.random() * chr.length)];
+      document.getElementById("ch").focus();
+
+    }
+  </script>
+</body>
+
+</html>
