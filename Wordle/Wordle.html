@@ -55,7 +55,9 @@
       now = document.getElementById('ch').value;
 
       if (now == ch_random) { result.innerHTML = "<p> YOU WIN </p>"; }
-      else { result.innerHTML = "<p>ยังไม่ใช่</p>"; }
+      else { result.innerHTML = "<p>ยังไม่ใช่</p>"; 
+      document.getElementById('ch').select();
+      }
 
       // let text = "";
       //for (let i = 0; i < 5; i++) {
@@ -93,13 +95,16 @@
     }
 
     function NewGame() {
-      document.getElementById('ch').value = "";
-      document.getElementById('hist').innerHTML = "";
-      document.getElementById('result').innerHTML = "";
-      const chr = ["after", "alone", "apple", "begin", "below", "black", "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight", "green", "group", "happy", " house", "image", "jelly"];
-      console.log(chr);
-      const ch_random = chr[Math.floor(Math.random() * chr.length)];
-      document.getElementById("ch").focus();
+      location.reload();
+      //document.getElementById('ch').value = "";
+      //document.getElementById('hist').innerHTML = "";
+      //document.getElementById('result').innerHTML = "";
+      //const chr = ["after", "alone", "apple", "begin", "below", "black", "chair", "chief", "devil", "dream", "earth", "eight", "fancy", "fight", "green", "group", "happy", " house", "image", "jelly"];
+
+      //const ch_random = chr[Math.floor(Math.random() * chr.length)];
+      //console.log(chr);
+      //document.getElementById("ch").focus();
+      
 
     }
   </script>
