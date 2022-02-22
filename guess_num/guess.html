@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess number</title>
+</head>
+
+<body>
+    <h4>เกมส์ทายตัวเลข</h4>
+    <input type="text" id="num">
+    <input type="button" value="Guess" onclick="guess()">
+    <input type="button" value="New" onclick="newGame()">
+    <div id="hist"></div>
+    <div id="result"></div>
+
+    <script>
+        rnd = Math.floor(Math.random() * 100);
+        console.log(rnd);
+        document.getElementById('num').focus();
+
+        function guess() {
+            n = document.getElementById('num').value;
+            h = document.getElementById('hist');
+            h.innerHTML += n + ",";
+            resolt = document.getElementById('result');
+            if (n < rnd) result.innerHTML = "<p>น้อยไป</p>";
+            if (n > rnd) result.innerHTML = "<p>มากไป</p>";
+            if (n == rnd) result.innerHTML = "<p>ถูกต้องงง</p>";
+            document.getElementById('num').select();
+        }
+
+        function newGame() {
+            document.getElementById('num').value = "";
+            document.getElementById('hist').innerHTML = "";
+            document.getElementById('result').innerHTML = "";
+            rnd = Math.floor(Math.random() * 100);
+            console.log(rnd);
+            document.getElementById('num').focus();
+        }
+    </script>
+
+</body>
+
+</html>
