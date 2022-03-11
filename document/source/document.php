@@ -60,6 +60,7 @@
                                 <th scope='col'>วันที่สิ้นสุด</th>
                                 <th scope='col'>สถานะ</th>
                                 <th scope='col'>เอกสาร</th>
+                                
                                 <th scope='col'></th>
                             </tr>
                         </thead>
@@ -78,10 +79,13 @@
                 $table.= "<td>$row->doc_to_date</td>";
                 $table.= "<td>$row->doc_status</td>";
                 $table.= "<td>$row->doc_file_name</td>";
+                //$table.= "<td>$row->doc_file_up</td>"; //doc_file_up
                 $table.= "<td>";
                 $table.= "<a href='editdocument.php?id=$row->id'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>";
                 $table.= " | ";
                 $table.= "<a href='deletedocument.php?id=$row->id'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>";
+                $table.= " | ";
+                $table.= "<a href='newdocdb.php?id=$row->id'><span class='glyphicon glyphicon-user' aria-hidden='true'></span></a>";
                 $table.= "</td>";
                 $table.= "</tr>";
             }

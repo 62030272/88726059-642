@@ -25,6 +25,7 @@ if ($_POST){
     $stmt->execute();
 
     header("location: document.php");
+
 } else {
     $id = $_GET['id'];
     $sql = "SELECT *
@@ -76,8 +77,9 @@ if ($_POST){
             </div>
             <div class="form-group">
                 <label for="dfname">เอกสาร</label>
-                <input type="text" class="form-control" name="dfname" id="dfname" value="<?php echo $row->doc_file_name;?>">
+                <input type="file" class="form-control" name="dfname" id="dfname" value="<?php echo $row->doc_file_name;?>">
             </div>
+            
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
             <button type="submit" class="btn btn-success">Update</button>
         </form>

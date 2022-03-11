@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <h1>คำสั่งแต่งตั้ง </h1>
+        <h1>หน้าค้นหาคำสั่งแต่งตั้ง  </h1>
         <h4><a href='staff.php'><span>จัดการบุคลากร |</span></a>
         <a href='document.php'><span>จัดการข้อมูลคำสั่งแต่งตั้ง</span></a></h4>
         <form action="#" method="post">
@@ -31,8 +31,9 @@
         // เตรียมคำสั่ง SELECT ที่ถูกต้อง(ทดสอบให้แน่ใจ)
         // ถ้าต้องการแทนที่ค่าของตัวแปร ให้แทนที่ตัวแปรด้วยเครื่องหมาย ? 
         // concat() เป็นฟังก์ชั่นสำหรับต่อข้อความ
+     
         $sql = "SELECT *
-                FROM documents
+                FROM documents 
                 WHERE concat(doc_num, doc_title) LIKE ? 
                 ORDER BY id";
 
@@ -45,7 +46,7 @@
         $stmt->execute();
         // Retrieves a result set from a prepared statement
         $result = $stmt->get_result();
-        
+
         // num_rows เป็นจำนวนแถวที่ได้กลับคืนมา
         if ($result->num_rows == 0) {
             echo "Not found!";
@@ -79,7 +80,7 @@
                 $table.= "<td>$row->doc_start_date</td>";
                 $table.= "<td>$row->doc_to_date</td>";
                 $table.= "<td>$row->doc_status</td>";
-                $table.= "<td>$row->doc_file_name</td>";
+                $table.= "<td><a href='doc_file/$row->doc_file_name'>$row->doc_file_name</a></td>";
                 // $table.= "<td>";
                 // $table.= "<a href='editactor.php?id=$row->actor_id'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>";
                 // $table.= " | ";

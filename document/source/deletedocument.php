@@ -70,6 +70,7 @@ if ($_POST){
                 <th>เอกสาร</th>
                 <td><?php echo $row->doc_file_name;?></td>
             </tr>
+            
         </table>
         <form action="deletedocument.php" method="post">
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
