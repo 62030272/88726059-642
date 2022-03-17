@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        $_SESSION['msg'] = "คุณต้องเข้าสู่ระบบก่อน";
+        header('location: login2.php');
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header('location: login2.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +27,15 @@
 </head>
 
 <body>
+    <?php if (isset($_SESSION['username'])) : ?>
+        <p>Welcome <strong> <?php echo $_SESSION['username']; ?></strong></p>
+        <table>
+            <tr>
+                <th><a href="docdb.php?logout='1'" style="color : red;">Logout</a></th>
+            </tr>
+        </table>
+    <?php endif ?>
+
     <div class="container">
         <h1>หน้าค้นหาคำสั่งแต่งตั้ง  </h1>
         <h4><a href='staff.php'><span>จัดการบุคลากร |</span></a>

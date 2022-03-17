@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        $_SESSION['msg'] = "คุณต้องเข้าสู่ระบบก่อน";
+        header('location: login2.php');
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header('location: login2.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +94,7 @@
                 $table.= "<td>$row->doc_start_date</td>";
                 $table.= "<td>$row->doc_to_date</td>";
                 $table.= "<td>$row->doc_status</td>";
-                $table.= "<td>$row->doc_file_name</td>";
+                $table.= "<td><a href='doc_file/$row->doc_file_name'>$row->doc_file_name</a></td>";
                 //$table.= "<td>$row->doc_file_up</td>"; //doc_file_up
                 $table.= "<td>";
                 $table.= "<a href='editdocument.php?id=$row->id'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>";

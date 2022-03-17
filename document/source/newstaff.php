@@ -1,3 +1,18 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        $_SESSION['msg'] = "คุณต้องเข้าสู่ระบบก่อน";
+        header('location: login2.php');
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header('location: login2.php');
+    }
+
+?>
 <?php
 require_once("doconfig.php");
 
@@ -5,6 +20,10 @@ require_once("doconfig.php");
 if ($_POST){
     $stfc = $_POST['stfc'];
     $stfn = $_POST['stfn'];
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+    $password = md5($pass);
+
 
 
     // insert a record by prepare and bind
@@ -17,10 +36,10 @@ if ($_POST){
     // ในส่วนของ INTO ให้กำหนดให้ตรงกับชื่อคอลัมน์ในตาราง actor
     // ต้องแน่ใจว่าคำสั่ง INSERT ทำงานใด้ถูกต้อง - ให้ทดสอบก่อน
     $sql = "INSERT 
-            INTO staff (stf_code, stf_name) 
-            VALUES (?, ?)";
+            INTO staff (stf_code, stf_name, username, passwd) 
+            VALUES (?, ?, ?, ?)";
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("ss", $stfc, $stfn);
+    $stmt->bind_param("ssss", $stfc, $stfn, $user, $password);
     $stmt->execute();
 
     // redirect ไปยัง actor.php
@@ -50,6 +69,13 @@ if ($_POST){
             <div class="form-group">
                 <label for="stfn">ชื่อ-นามสกุล</label>
                 <input type="text" class="form-control" name="stfn" id="stfn">
+            <div class="form-group">
+                <label for="user">User Name</label>
+                <input type="text" class="form-control" name="user" id="user">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="text" class="form-control" name="pass" id="pass">
             </div>
             
             <button type="submit" class="btn btn-success">Save</button>
