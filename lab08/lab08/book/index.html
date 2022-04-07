@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Books</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="loadBook();">
+    <div class="container">
+        <h2>Books</h2>
+        <input type="text" id="txtSearch" placeholder="enter keyword">
+        <input type="button" value="Search" onClick="searchBook();">
+        <br />
+        <br />
+        <div id="numbook"></div>
+        <div id="content"></div>
+
+        <script>
+            var siteURL = "http://localhost/lab08/book/";
+            var serviceURL = "http://localhost/lab08/api/v1/";
+
+            function showBooks(books) {
+                txtHtml = "<table class='table table-hover'>";
+                txtHtml += "<tr><th>#</th><th>Title</th><th>ISBN</th><th>Category</th><th></th></tr>";
+                for (i = 0; i < books.length; i++) {
+                    //alert(books[i].id);
+                    seq = i + 1;
+                    txtHtml += "<tr>";
+                    txtHtml += "<td>" + seq + "</td>";
+                    txtHtml += "<td>" + books[i].book_name + "</td>";
+                    txtHtml += "<td>" + books[i].book_isbn + "</td>";
+                    txtHtml += "<td>" + books[i].book_category + "</td>";
+                    txtHtml += "<td>[<a href='editbook.html?id=" + books[i].id + "'>edit</a>]</td>";
+                    txtHtml += "</tr>";
+                }
+                txtHtml += "</table>";
+                document.getElementById("content").innerHTML = txtHtml;
+            }
+
+            function searchBook() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 3) document.body.style.cursor = 'wait';
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.body.style.cursor = 'default';
+                        books = JSON.parse(this.responseText);
+                        document.getElementById("numbook").innerHTML = "Number of books " + books.length + " | Newest first. | ";
+                        document.getElementById("numbook").innerHTML += "[<a href='addbook.html'>Add new</a>]";
+                        showBooks(books)
+                    }
+                };
+                kw = document.getElementById('txtSearch').value;
+                kw = kw == "" ? "?" : kw;
+                xhttp.open("GET", serviceURL + "search/" + kw, true);
+                xhttp.send();
+            }
+
+            function loadBook() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 3) document.body.style.cursor = 'wait';
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.body.style.cursor = 'default';
+                        books = JSON.parse(this.responseText);
+                        document.getElementById("numbook").innerHTML = "Number of books " + books.length + " | Newest first. | ";
+                        document.getElementById("numbook").innerHTML += "[<a href='addbook.html'>Add new</a>]";
+                        showBooks(books)
+                    }
+                };
+                xhttp.open("GET", serviceURL + "books", true);
+                xhttp.send();
+            }
+        </script>
+    </div>
+</body>
+
+</html>
