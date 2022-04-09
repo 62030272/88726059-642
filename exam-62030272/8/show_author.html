@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>author</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>ผู้แต่ง</h2>
+    <br>
+
+    <script>
+
+        window.onload = author();
+        function author() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    var dog = JSON.parse(this.responseText);
+
+                    function cat(red) {
+                        document.write("<h2>ผู้แต่ง</h2>")
+                        for (let index = 0; index < red.length; index++) {
+                            var box = dog[index].authorID;
+                            document.write('<h4>รหัส: ' + dog[index].authorID + '<br>ชื่อ: ' + dog[index].author + '<br>นามปากกา: ' + dog[index].penname + '<br></h4>');
+                            document.write('<a href="del_author.php?authorID='+ box +'"><button>delete</button></a>');
+                            document.write("<hr>");
+                        }
+
+                    }
+                    cat(dog);
+                }
+            }
+            xhttp.open("GET", "get_authors.php", true);
+            xhttp.send();
+        };
+    </script>
+
+</body>
+
+</html>

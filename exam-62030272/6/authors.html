@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>authors </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>ผู้แต่ง</h2>
+    <br>
+    <pre>
+            รหัสผู้แต่ง:   <input type="text" id="authorID"> <br> 
+            ชื่อผู้แต่ง:    <input type="text" id="author"> <br> 
+            นามปากกา:  <input type="text" id="penname"> <br> 
+            <input type="button" value="save" onclick="show()">
+            <div id="disp"></div>
+    </pre>
+
+    <script>
+
+        var authors = [];
+        // var authorID = document.getElementById('authorID').value;
+        //     var author = document.getElementById('author').value;
+        //     var penname = document.getElementById('penname').value;
+
+        //     var authors2 = {
+
+        //         authorID: authorID,
+        //         author: author,
+        //         penname: penname
+
+        //     };
+        // authors.push(authors2);
+
+       
+        function show() {
+
+            var authorID = document.getElementById('authorID').value;
+            var author = document.getElementById('author').value;
+            var penname = document.getElementById('penname').value;
+
+            var authors2 = {
+
+                authorID: authorID,
+                author: author,
+                penname: penname
+
+            };
+            console.log(authors2);
+            
+            //var authors2 = JSON.parse(jsonStr);
+            //obj['theTeam'].push({ "teamId": "4", "status": "pending" });
+            authors.push(authors2);
+            console.log(authors);
+            //jsonStr = JSON.stringify(obj);
+            
+            //document.getElementById("disp").innerHTML = this.responseText;
+
+            
+                $ss = authors.length - 1;
+                document.getElementById("disp").innerHTML +='<h4>รหัส: ' + authors[$ss].authorID + '<br>ชื่อ: ' + authors[$ss].author + '<br>นามปากกา: ' + authors[$ss].penname + '<br><hr></h4>';
+
+            
+        }
+
+        //show(authors);
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- ,authorID.focus(),authorID.value='',author.value='',penname.value='' -->

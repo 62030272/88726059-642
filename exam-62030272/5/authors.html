@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>authors</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>ผู้แต่ง</h2>
+    <br>
+    
+    <script>
+        var authors = [
+            { authorID: 1111, author: 'wittawas', penname: 'witty100' },
+            { authorID: 1112, author: 'jakkarin', penname: 'พ่อบ้านใจกล้า' },
+            { authorID: 1113, author: 'worawit', penname: 'obob' }
+        ];
+
+        authors.push({ authorID: 1114, author: 'surachai', penname: 'jummumboy' });
+    
+        function show(authors) {
+
+            for (i = 0; i < authors.length; i++) {
+
+                document.write('<h4>รหัส: ' + authors[i].authorID + '<br>ชื่อ: ' + authors[i].author + '<br>นามปากกา: ' + authors[i].penname + '<br><hr></h4>');
+                
+            }
+        }
+        show(authors);
+    </script>
+
+    
+
+
+    
+
+</body>
+
+</html>

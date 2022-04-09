@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie</title>
+</head>
+
+
+
+<body align="center">
+
+    <script>
+
+        mov = ["Avenger:Endgame", "The Lion King", "Star Wars:The Rise of Skywalker", "Frozen II", "Toy Story 4"];
+        console.log(mov);
+        number = [858373000, 543638043, 451582256, 450439533, 434038008];
+        console.log(number);
+        //
+        $sum = 0;
+        //
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+
+            console.log(num);
+        }
+        //
+        document.write("<table border='1'>");
+        document.write("<tr>");
+        document.write("<th>#</th>");
+        document.write("<th>ภาพยนตร์</th>");
+        document.write("<th>รายได้รวม</th>");
+        document.write("<tr>");
+
+        for (i = 0; i < mov.length; i++) {
+            document.write("<tr>");
+            document.write("<td>" + (i + 1) + "</td>");
+            document.write("<td>" + mov[i] + "</td>");
+            document.write("<td>" + formatNumber(number[i]) + "</td>");
+            document.write("</tr>");
+            $sum += number[i];
+
+        }
+       
+        document.write("<tr>");
+        document.write("<td>รวม</td>");
+        document.write("<td></td>");
+        document.write("<td>" + formatNumber($sum) + "</td>");
+        document.write("</tr>");
+        document.write("</table>");
+    </script>
+</body>
+
+</html>
